@@ -1,8 +1,9 @@
 /**
- * Given a non-negative integer, return its binary representation as a string.
+ * Given a non-negative integer,
+ * return its binary representation as a string.
  * @author Jonathan Reyes
- * @param {*} decimal
- * @returns
+ * @param {number} decimal
+ * @returns {string} binary relative
  */
 function toBinary(decimal) {
   let binary = [];
