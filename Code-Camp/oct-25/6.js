@@ -16,14 +16,14 @@ function sendMessage(route) {
   for (let n = 0; n < route.length; n++) {
     const stretch = route[n];
     time += stretch / 300000;
-    if(n === route.length - 1) time += 0.5
+    n === route.length - 1 ? null : (time += 0.5);
   }
 
-  calc = time.toFixed(4)
-  return parseFloat(calc)
+  const ans = time.toFixed(4);
+  return parseFloat(ans);
 }
 
-console.log(sendMessage([300000, 300000]))
+console.log(sendMessage([1000000, 500000000, 1000000]));
 
 // Waiting:1. sendMessage([300000, 300000]) should return 2.5.
 // Waiting:2. sendMessage([384400, 384400]) should return 3.0627.
