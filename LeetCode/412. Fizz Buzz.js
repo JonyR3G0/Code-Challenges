@@ -9,14 +9,24 @@
  * @return {string[]}
  */
 var fizzBuzz = function (n) {
-    const answer = []
-  for (let index = n; index >= 1; index--) {
-    let checkout = index
-    if(index % 3 === 0) checkout = 'Fizz'
-    if(index % 5 === 0) checkout = checkout === 'Fizz' ? checkout = 'FizzBuzz' : checkout = 'Buzz'
-    answer.unshift(`${checkout}`)
+  const answer = [];
+  for (let i = 1; i <= n; i++) {
+    const eval2 = i % 3;
+    const eval1 = i % 5;
+
+    if (eval1 === 0 || eval2 === 0) {
+        if (eval1 + eval2 === 0) {
+            answer.push('FizzBuzz')
+            continue;
+        }
+      eval1 === 0 ? answer.push('Buzz') : answer.push('Fizz')
+      continue;
+    }
+    // Usar concatenacion ${} es menos eficiente en runtime comparado al metodo toString
+    answer.push(i.toString());
   }
-  return answer
+  // console.log(answer)
+  return answer;
 };
 
-fizzBuzz(15);
+// fizzBuzz(15);
