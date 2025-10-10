@@ -1,25 +1,16 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
+ * Given the head of a singly linked list, return the middle node of the linked list.
+ * If there are two middle nodes, return the second middle node.
+ * @author Jonathan
  * @param {ListNode} head
  * @return {ListNode}
  */
 var middleNode = function (head) {
-    let calcNode = 0
-    let actual = head
-    if (actual.next === null) return actual
-    while (actual !== null) {
-        actual = actual.next
-        calcNode++
+    let twicer = head
+    let oner = head
+    while (twicer && twicer.next) {
+        twicer = twicer.next.next
+        oner = oner.next
     }
-    actual = head
-    for (let n = Math.floor(calcNode / 2) - 1; n > 0; n--) {
-        actual = actual.next
-    }
-    return actual.next
+    return oner
 };
