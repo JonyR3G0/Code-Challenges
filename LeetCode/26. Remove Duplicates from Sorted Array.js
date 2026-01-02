@@ -24,15 +24,17 @@ If all assertions pass, then your solution will be accepted.
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
-    const newArr = []
-    for (let i = 0; i < nums.length; i++) {
-        if(nums[i] ==! nums[i-1]){
-            continue
-        }
-        newArr.push(nums[i])
+var removeDuplicates = function (nums) {
+  const newArr = [];
+  let highestNumb = -1;
+  for (let i = 0; i < nums.length; i++) {
+    const element = nums[i];
+    if (element > highestNumb) {
+      newArr.push(nums[i]);
+      highestNumb = nums[i];
     }
-    return newArr
+  }
+  return newArr;
 };
 
-console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
