@@ -25,13 +25,12 @@ If all assertions pass, then your solution will be accepted.
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    let lastNum = nums[0]
     const newArr = []
     for (let i = 0; i < nums.length; i++) {
-        const element = nums[i];
-        element ==! lastNum ? newArr.push(element) : console.log("ommited", element)
-        lastNum = nums[i+1]
-        console.log(lastNum, element)
+        if(nums[i] ==! nums[i-1]){
+            continue
+        }
+        newArr.push(nums[i])
     }
     return newArr
 };
