@@ -25,16 +25,21 @@ If all assertions pass, then your solution will be accepted.
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-  const newArr = [];
   let highestNumb = -1;
+  let position = -1;
   for (let i = 0; i < nums.length; i++) {
     const element = nums[i];
     if (element > highestNumb) {
-      newArr.push(nums[i]);
       highestNumb = nums[i];
+
+      position++
+      nums[position] = highestNumb
+      console.log(position)
     }
   }
-  return newArr;
+      nums.splice(position + 1, nums.length)
+
+  return nums;
 };
 
 console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
